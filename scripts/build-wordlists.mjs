@@ -8,7 +8,7 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { createRequire } from "node:module";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { entropy, score } from "../src/assets/js/engine.js";
+import { entropy, score, decode, filterCandidates, bestGuesses } from "../lib/engine.mjs";
 
 const require = createRequire(import.meta.url);
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -104,3 +104,40 @@ for (const opener of openers.slice(0, 3).map((o) => o.word)) {
 }
 writeFileSync(join(root, "data/second-words.json"), JSON.stringify(pairs, null, 2) + "\n");
 console.log("Best second words:", Object.entries(pairs).map(([k, v]) => `${k} → ${v[0].word}`).join(", "));
+
+// Benchmark: let the solver play every likely answer, opening with the top
+// opener and then always taking its own first suggestion. These numbers are
+// quoted on the site, so they come from real runs, not estimates.
+{
+  const t0 = Date.now();
+  const opener = openers[0].word;
+  const dist = {};
+  let total = 0;
+  let worst = { word: "", turns: 0 };
+  for (const secret of answers5) {
+    const rows = [];
+    let guess = opener;
+    let turns = 1;
+    while (guess !== secret) {
+      rows.push({ word: guess, marks: decode(score(guess, secret), 5) });
+      const left = filterCandidates(answers5, rows);
+      guess = bestGuesses(left, guesses5, { limit: 1, maxPool: 300 })[0].word;
+      turns++;
+    }
+    dist[turns] = (dist[turns] || 0) + 1;
+    total += turns;
+    if (turns > worst.turns) worst = { word: secret, turns };
+  }
+  const games = answers5.length;
+  const bench = {
+    opener,
+    games,
+    average: Number((total / games).toFixed(2)),
+    distribution: dist,
+    solvedWithinSix: Number(((100 * Object.entries(dist).filter(([k]) => Number(k) <= 6).reduce((a, [, v]) => a + v, 0)) / games).toFixed(1)),
+    solvedWithinFour: Number(((100 * Object.entries(dist).filter(([k]) => Number(k) <= 4).reduce((a, [, v]) => a + v, 0)) / games).toFixed(1)),
+    worst,
+  };
+  writeFileSync(join(root, "data/benchmark.json"), JSON.stringify(bench, null, 2) + "\n");
+  console.log(`Benchmark (${Date.now() - t0}ms):`, JSON.stringify(bench));
+}

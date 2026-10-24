@@ -1,3 +1,8 @@
 node_modules/
-dist/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+public/words/
+public/search-index.json
 .DS_Store

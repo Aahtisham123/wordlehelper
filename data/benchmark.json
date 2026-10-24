@@ -1,0 +1,20 @@
+{
+  "opener": "raise",
+  "games": 2744,
+  "average": 3.62,
+  "distribution": {
+    "1": 1,
+    "2": 61,
+    "3": 1148,
+    "4": 1325,
+    "5": 196,
+    "6": 11,
+    "7": 2
+  },
+  "solvedWithinSix": 99.9,
+  "solvedWithinFour": 92.4,
+  "worst": {
+    "word": "cover",
+    "turns": 7
+  }
+}

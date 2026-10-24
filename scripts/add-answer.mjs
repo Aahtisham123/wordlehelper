@@ -10,7 +10,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { puzzleNumber } from "../src/lib/site.mjs";
+import { puzzleNumber } from "../lib/site.mjs";
 
 const file = join(dirname(fileURLToPath(import.meta.url)), "../data/daily.json");
 const [date, rawAnswer, clue] = process.argv.slice(2);

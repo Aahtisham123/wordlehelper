@@ -1,21 +1,36 @@
 {
   "name": "wordlehelper",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
-  "description": "Static site generator for wordlehelp.co — Wordle Helper, solvers, word lists, daily hints and guides.",
+  "description": "wordlehelp.co — Wordle Helper, solvers, word lists, daily hints and guides, built with Next.js.",
   "type": "module",
   "scripts": {
-    "build": "node src/build.mjs",
-    "serve": "node scripts/serve.mjs",
-    "dev": "node src/build.mjs && node scripts/serve.mjs",
+    "dev": "npm run words && next dev",
+    "build": "npm run words && next build",
+    "start": "npx serve out",
+    "words": "node scripts/copy-words.mjs",
+    "lint": "tsc --noEmit",
     "test": "node --test test/*.test.mjs",
+    "test:site": "node --test test/site.test.mjs",
+    "images": "node scripts/build-images.mjs",
     "wordlists": "node scripts/build-wordlists.mjs",
     "add-answer": "node scripts/add-answer.mjs"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
+  },
+  "dependencies": {
+    "lucide-react": "1.50.0",
+    "next": "16.4.3",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
   },
   "devDependencies": {
+    "@types/node": "22.18.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "sharp": "0.35.5",
+    "typescript": "5.9.3",
     "wordlist-english": "1.2.1"
   }
 }

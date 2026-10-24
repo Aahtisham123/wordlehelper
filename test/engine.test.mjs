@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { score, encode, decode, filterCandidates, matchWords, unscramble, bestGuesses, rankByFrequency } from "../src/assets/js/engine.js";
+import { score, encode, decode, filterCandidates, matchWords, unscramble, bestGuesses, rankByFrequency } from "../lib/engine.mjs";
 
 const marks = (s) => Array.from(s).map((c) => ({ x: 0, y: 1, g: 2 })[c]);
 const fb = (guess, answer) => decode(score(guess, answer), guess.length).map((m) => "xyg"[m]).join("");
