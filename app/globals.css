@@ -644,3 +644,21 @@ tbody tr:hover { background: var(--surface-2); }
 }
 :root[data-theme="dark"] .hero-figure img { filter: brightness(0.88) saturate(0.95); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hero-figure img { filter: brightness(0.88) saturate(0.95); } }
+
+/* ---------- Collapsible desktop sidebar ---------- */
+.sidebar-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.sidebar-toggle { color: var(--muted); }
+@media (min-width: 1024px) {
+  .sidebar { transition: width 0.25s var(--ease); }
+  .content-col { transition: margin-left 0.25s var(--ease); }
+  .sb-collapsed { --sidebar-w: 76px; }
+  .sb-collapsed .sidebar .sidebar-head { flex-direction: column; padding: 16px 0 8px; gap: 10px; }
+  .sb-collapsed .sidebar .logo-text { display: none; }
+  .sb-collapsed .sidebar .sidebar-nav { padding: 4px 10px 16px; overflow-x: hidden; }
+  .sb-collapsed .sidebar .nav-label { font-size: 0; height: 1px; margin: 12px 8px 10px; background: var(--border); }
+  .sb-collapsed .sidebar .nav-group + .nav-group { margin-top: 0; }
+  .sb-collapsed .sidebar-nav a { justify-content: center; padding: 10px; }
+  .sb-collapsed .sidebar-nav a span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .sb-collapsed .sidebar .sidebar-foot { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .sidebar, .content-col { transition: none; } }

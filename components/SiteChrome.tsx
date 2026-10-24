@@ -11,12 +11,25 @@ import { ThemeToggle } from "./ThemeToggle";
 export type NavItem = { href: string; label: string; icon: string };
 export type NavGroup = { label: string; items: NavItem[] };
 
-function Sidebar({ groups, onNavigate }: { groups: NavGroup[]; onNavigate?: () => void }) {
+function Sidebar({ groups, onNavigate, collapse }: { groups: NavGroup[]; onNavigate?: () => void; collapse?: { collapsed: boolean; toggle: () => void } }) {
   const pathname = usePathname();
   return (
     <>
       <div className="sidebar-head">
         <Logo onClick={onNavigate} />
+        {collapse && (
+          <button
+            type="button"
+            className="icon-btn sidebar-toggle"
+            onClick={collapse.toggle}
+            aria-label={collapse.collapsed ? "Expand sidebar" : "Collapse sidebar"}
+            aria-expanded={!collapse.collapsed}
+            aria-controls="desktop-sidebar"
+            title={collapse.collapsed ? "Expand sidebar" : "Collapse sidebar"}
+          >
+            <Icon name={collapse.collapsed ? "PanelLeftOpen" : "PanelLeftClose"} size={20} />
+          </button>
+        )}
       </div>
       <div className="sidebar-search">
         <SearchButton />
@@ -30,7 +43,7 @@ function Sidebar({ groups, onNavigate }: { groups: NavGroup[]; onNavigate?: () =
                 const active = pathname === it.href;
                 return (
                   <li key={it.href}>
-                    <Link href={it.href} className={active ? "active" : undefined} aria-current={active ? "page" : undefined} onClick={onNavigate}>
+                    <Link href={it.href} className={active ? "active" : undefined} aria-current={active ? "page" : undefined} onClick={onNavigate} title={collapse?.collapsed ? it.label : undefined}>
                       <Icon name={it.icon} size={18} />
                       <span>{it.label}</span>
                     </Link>
@@ -57,6 +70,18 @@ export function SiteChrome({ groups, children }: { groups: NavGroup[]; children:
   const drawer = useRef<HTMLElement>(null);
 
   useEffect(() => setOpen(false), [pathname]);
+
+  // Desktop sidebar: expanded or collapsed to an icon rail, remembered per visitor.
+  const [collapsed, setCollapsed] = useState(false);
+  useEffect(() => setCollapsed(document.documentElement.classList.contains("sb-collapsed")), []);
+  function toggleSidebar() {
+    const next = !collapsed;
+    setCollapsed(next);
+    document.documentElement.classList.toggle("sb-collapsed", next);
+    try {
+      localStorage.setItem("sidebar", next ? "collapsed" : "expanded");
+    } catch {}
+  }
 
   useEffect(() => {
     if (!open) return;
@@ -90,8 +115,8 @@ export function SiteChrome({ groups, children }: { groups: NavGroup[]; children:
 
   return (
     <div className="shell">
-      <aside className="sidebar" aria-label="Site navigation">
-        <Sidebar groups={groups} />
+      <aside id="desktop-sidebar" className="sidebar" aria-label="Site navigation">
+        <Sidebar groups={groups} collapse={{ collapsed, toggle: toggleSidebar }} />
       </aside>
 
       <div className={`drawer-backdrop${open ? " show" : ""}`} onClick={() => setOpen(false)} aria-hidden="true" />

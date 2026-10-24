@@ -31,4 +31,5 @@ export function ThemeToggle() {
 }
 
 // Runs before first paint so the page never flashes the wrong theme.
-export const themeScript = `(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}document.documentElement.classList.add("js")})();`;
+// Also restores a collapsed sidebar, so the layout doesn't jump on load.
+export const themeScript = `(function(){var d=document.documentElement;try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")d.dataset.theme=t;if(localStorage.getItem("sidebar")==="collapsed")d.classList.add("sb-collapsed")}catch(e){}d.classList.add("js")})();`;
