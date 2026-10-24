@@ -34,6 +34,7 @@ test("built pages meet SEO and accessibility rules", { skip: !built && "run npm 
     const desc = meta(html, "name", "description") || "";
     if (!title) problems.push(`${rel}: missing title`);
     if (title.length > 50) problems.push(`${rel}: title ${title.length} chars: ${title}`);
+    if (title.includes(":")) problems.push(`${rel}: use " - " instead of ":" in titles: ${title}`);
     if (!desc) problems.push(`${rel}: missing description`);
     if (desc.length > 144) problems.push(`${rel}: description ${desc.length} chars`);
     if (titles.has(title)) problems.push(`${rel}: duplicate title with ${titles.get(title)}`);
