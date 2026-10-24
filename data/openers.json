@@ -1,0 +1,302 @@
+[
+  {
+    "word": "raise",
+    "bits": 5.859,
+    "buckets": 133,
+    "isAnswer": true
+  },
+  {
+    "word": "slate",
+    "bits": 5.806,
+    "buckets": 153,
+    "isAnswer": true
+  },
+  {
+    "word": "arise",
+    "bits": 5.787,
+    "buckets": 129,
+    "isAnswer": true
+  },
+  {
+    "word": "stare",
+    "bits": 5.769,
+    "buckets": 137,
+    "isAnswer": true
+  },
+  {
+    "word": "orate",
+    "bits": 5.765,
+    "buckets": 127,
+    "isAnswer": true
+  },
+  {
+    "word": "carte",
+    "bits": 5.761,
+    "buckets": 148,
+    "isAnswer": false
+  },
+  {
+    "word": "irate",
+    "bits": 5.759,
+    "buckets": 122,
+    "isAnswer": true
+  },
+  {
+    "word": "caret",
+    "bits": 5.755,
+    "buckets": 149,
+    "isAnswer": true
+  },
+  {
+    "word": "crate",
+    "bits": 5.754,
+    "buckets": 149,
+    "isAnswer": true
+  },
+  {
+    "word": "tares",
+    "bits": 5.752,
+    "buckets": 138,
+    "isAnswer": false
+  },
+  {
+    "word": "arose",
+    "bits": 5.749,
+    "buckets": 124,
+    "isAnswer": true
+  },
+  {
+    "word": "taler",
+    "bits": 5.749,
+    "buckets": 143,
+    "isAnswer": false
+  },
+  {
+    "word": "trace",
+    "bits": 5.748,
+    "buckets": 151,
+    "isAnswer": true
+  },
+  {
+    "word": "ariel",
+    "bits": 5.747,
+    "buckets": 131,
+    "isAnswer": false
+  },
+  {
+    "word": "saner",
+    "bits": 5.746,
+    "buckets": 142,
+    "isAnswer": true
+  },
+  {
+    "word": "carse",
+    "bits": 5.743,
+    "buckets": 142,
+    "isAnswer": false
+  },
+  {
+    "word": "snare",
+    "bits": 5.74,
+    "buckets": 139,
+    "isAnswer": true
+  },
+  {
+    "word": "artel",
+    "bits": 5.734,
+    "buckets": 134,
+    "isAnswer": false
+  },
+  {
+    "word": "taser",
+    "bits": 5.733,
+    "buckets": 138,
+    "isAnswer": true
+  },
+  {
+    "word": "least",
+    "bits": 5.72,
+    "buckets": 144,
+    "isAnswer": true
+  },
+  {
+    "word": "torse",
+    "bits": 5.719,
+    "buckets": 149,
+    "isAnswer": false
+  },
+  {
+    "word": "ratel",
+    "bits": 5.717,
+    "buckets": 138,
+    "isAnswer": false
+  },
+  {
+    "word": "resat",
+    "bits": 5.7,
+    "buckets": 140,
+    "isAnswer": false
+  },
+  {
+    "word": "tears",
+    "bits": 5.698,
+    "buckets": 138,
+    "isAnswer": false
+  },
+  {
+    "word": "stale",
+    "bits": 5.688,
+    "buckets": 142,
+    "isAnswer": true
+  },
+  {
+    "word": "later",
+    "bits": 5.687,
+    "buckets": 141,
+    "isAnswer": true
+  },
+  {
+    "word": "alert",
+    "bits": 5.687,
+    "buckets": 138,
+    "isAnswer": true
+  },
+  {
+    "word": "crane",
+    "bits": 5.686,
+    "buckets": 146,
+    "isAnswer": true
+  },
+  {
+    "word": "alter",
+    "bits": 5.672,
+    "buckets": 135,
+    "isAnswer": true
+  },
+  {
+    "word": "rates",
+    "bits": 5.659,
+    "buckets": 127,
+    "isAnswer": false
+  },
+  {
+    "word": "antre",
+    "bits": 5.654,
+    "buckets": 136,
+    "isAnswer": false
+  },
+  {
+    "word": "toile",
+    "bits": 5.652,
+    "buckets": 130,
+    "isAnswer": false
+  },
+  {
+    "word": "trine",
+    "bits": 5.65,
+    "buckets": 141,
+    "isAnswer": false
+  },
+  {
+    "word": "stane",
+    "bits": 5.647,
+    "buckets": 133,
+    "isAnswer": false
+  },
+  {
+    "word": "lares",
+    "bits": 5.645,
+    "buckets": 125,
+    "isAnswer": false
+  },
+  {
+    "word": "prate",
+    "bits": 5.644,
+    "buckets": 141,
+    "isAnswer": true
+  },
+  {
+    "word": "react",
+    "bits": 5.641,
+    "buckets": 140,
+    "isAnswer": true
+  },
+  {
+    "word": "learn",
+    "bits": 5.635,
+    "buckets": 135,
+    "isAnswer": true
+  },
+  {
+    "word": "parse",
+    "bits": 5.625,
+    "buckets": 146,
+    "isAnswer": true
+  },
+  {
+    "word": "roast",
+    "bits": 5.625,
+    "buckets": 136,
+    "isAnswer": true
+  },
+  {
+    "word": "slier",
+    "bits": 5.625,
+    "buckets": 132,
+    "isAnswer": true
+  },
+  {
+    "word": "aisle",
+    "bits": 5.624,
+    "buckets": 126,
+    "isAnswer": true
+  },
+  {
+    "word": "serai",
+    "bits": 5.623,
+    "buckets": 119,
+    "isAnswer": false
+  },
+  {
+    "word": "laser",
+    "bits": 5.622,
+    "buckets": 131,
+    "isAnswer": true
+  },
+  {
+    "word": "tales",
+    "bits": 5.622,
+    "buckets": 131,
+    "isAnswer": false
+  },
+  {
+    "word": "peart",
+    "bits": 5.617,
+    "buckets": 153,
+    "isAnswer": false
+  },
+  {
+    "word": "cater",
+    "bits": 5.616,
+    "buckets": 142,
+    "isAnswer": true
+  },
+  {
+    "word": "rales",
+    "bits": 5.614,
+    "buckets": 126,
+    "isAnswer": false
+  },
+  {
+    "word": "trade",
+    "bits": 5.608,
+    "buckets": 135,
+    "isAnswer": true
+  },
+  {
+    "word": "alone",
+    "bits": 5.607,
+    "buckets": 127,
+    "isAnswer": true
+  }
+]

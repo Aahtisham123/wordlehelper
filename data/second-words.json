@@ -1,0 +1,83 @@
+{
+  "raise": [
+    {
+      "word": "clout",
+      "bits": 9.449,
+      "buckets": 1065
+    },
+    {
+      "word": "count",
+      "bits": 9.446,
+      "buckets": 1072
+    },
+    {
+      "word": "cloth",
+      "bits": 9.439,
+      "buckets": 1085
+    },
+    {
+      "word": "poult",
+      "bits": 9.431,
+      "buckets": 1075
+    },
+    {
+      "word": "mulct",
+      "bits": 9.387,
+      "buckets": 1075
+    }
+  ],
+  "slate": [
+    {
+      "word": "prion",
+      "bits": 9.553,
+      "buckets": 1126
+    },
+    {
+      "word": "cornu",
+      "bits": 9.515,
+      "buckets": 1092
+    },
+    {
+      "word": "minor",
+      "bits": 9.5,
+      "buckets": 1087
+    },
+    {
+      "word": "corny",
+      "bits": 9.482,
+      "buckets": 1087
+    },
+    {
+      "word": "crony",
+      "bits": 9.458,
+      "buckets": 1065
+    }
+  ],
+  "arise": [
+    {
+      "word": "count",
+      "bits": 9.373,
+      "buckets": 1056
+    },
+    {
+      "word": "cloth",
+      "bits": 9.357,
+      "buckets": 1053
+    },
+    {
+      "word": "clout",
+      "bits": 9.352,
+      "buckets": 1035
+    },
+    {
+      "word": "mulct",
+      "bits": 9.341,
+      "buckets": 1056
+    },
+    {
+      "word": "poult",
+      "bits": 9.331,
+      "buckets": 1032
+    }
+  ]
+}
