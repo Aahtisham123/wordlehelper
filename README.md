@@ -14,6 +14,7 @@ npm start            # serve out/ locally
 npm run lint         # TypeScript check
 npm test             # engine tests + checks on the built site (build first)
 
+npm run fetch-daily  # pull recent answers (add -- --backfill for all)
 npm run add-answer -- 2026-10-24 crane "optional one-line clue"
 npm run images       # regenerate illustrations, social images and icons
 npm run wordlists    # regenerate word lists, openers and benchmark
@@ -53,10 +54,15 @@ npm run wordlists    # regenerate word lists, openers and benchmark
 
 ## Daily hints workflow
 
-1. `npm run add-answer -- YYYY-MM-DD answer "optional clue"`. Five hints are generated automatically (vowels, repeated letters, rare letters, first letter, last letter); the clue becomes hint 6.
-2. Rebuild and deploy. Set up a daily rebuild on your host (a scheduled deploy hook or CI cron).
+Answers are fetched automatically by `.github/workflows/daily-answers.yml`:
 
-Entries dated after the build date (`BUILD_DATE`, default today in UTC) stay hidden, so you can schedule ahead. Once the next puzzle is published, an answer moves to `/wordle-answers/`. `data/daily.json` ships empty: no answers are bundled.
+- Shortly after midnight UTC (with retries later in the day), it runs `npm run fetch-daily`. The script pulls yesterday's and today's answers from the NYT puzzle endpoint (`https://www.nytimes.com/svc/wordle/v2/YYYY-MM-DD.json`), commits any changes to `data/daily.json` and pushes.
+- Hosts connected to the repo (Vercel, Netlify, Cloudflare Pages) rebuild on that push. For other hosts, add a `DEPLOY_HOOK_URL` repository secret and the workflow will call it.
+- **First run:** open *Actions → Daily Wordle answers → Run workflow* and tick **backfill**. This fills in every past answer since June 2021 for the archive.
+
+From the answer alone, the site generates five hints (vowels, repeated letters, rare letters, first letter, last letter). To add a hint 6 clue, run `npm run add-answer -- YYYY-MM-DD answer "clue"`; the fetch script never overwrites clues. Once the next puzzle is out, an answer moves to `/wordle-answers/`.
+
+The NYT endpoint is unofficial and undocumented: it may change, be blocked or conflict with the NYT's terms of use. The script skips dates it can't fetch, never deletes existing entries, and the workflow only fails if every request fails. If it ever stops working, `npm run add-answer` still works for manual updates.
 
 ## Testimonials
 

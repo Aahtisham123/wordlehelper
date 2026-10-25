@@ -2,7 +2,7 @@
   "name": "wordlehelper",
   "version": "2.0.0",
   "private": true,
-  "description": "wordlehelp.co — Wordle Helper, solvers, word lists, daily hints and guides, built with Next.js.",
+  "description": "wordlehelp.co \u2014 Wordle Helper, solvers, word lists, daily hints and guides, built with Next.js.",
   "type": "module",
   "scripts": {
     "dev": "npm run words && next dev",
@@ -14,7 +14,8 @@
     "test:site": "node --test test/site.test.mjs",
     "images": "node scripts/build-images.mjs",
     "wordlists": "node scripts/build-wordlists.mjs",
-    "add-answer": "node scripts/add-answer.mjs"
+    "add-answer": "node scripts/add-answer.mjs",
+    "fetch-daily": "node scripts/fetch-daily.mjs"
   },
   "engines": {
     "node": ">=20"
