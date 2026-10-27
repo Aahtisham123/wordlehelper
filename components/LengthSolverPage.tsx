@@ -4,7 +4,7 @@ import { GridSolver } from "@/components/tools/GridSolver";
 import { getWords } from "@/lib/data.mjs";
 import { getPage } from "@/lib/registry-types";
 
-const NAME: Record<number, string> = { 3: "three", 4: "four", 6: "six", 7: "seven" };
+const NAME: Record<number, string> = { 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven" };
 
 const ADVICE: Record<number, { intro: string; tips: React.ReactNode[] }> = {
   3: {
@@ -49,7 +49,7 @@ export function LengthSolverPage({ n }: { n: number }) {
   const page = getPage(`/${n}-letter-wordle-solver/`);
   const words = getWords(n);
   const name = NAME[n];
-  const others = [3, 4, 6, 7].filter((x) => x !== n);
+  const others = [3, 4, 5, 6, 7].filter((x) => x !== n);
   const faqs: QA[] = [
     {
       q: `How does the ${n} letter Wordle solver work?`,

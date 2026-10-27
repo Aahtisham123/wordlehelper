@@ -112,6 +112,7 @@ const ILLUSTRATIONS = {
   unlimited: { icon: "Infinity", accent: "#7c4dcc", rows: [["NYMPH", "xxxxx"], ["FJORD", "xxggg"], ["CHORD", "ggggg"]] },
   "solver-3": { icon: "Grid3x3", accent: C.brand, rows: [["CAT", "xgg"], ["HAT", "xgg"], ["BAT", "ggg"]] },
   "solver-4": { icon: "Grid3x3", accent: "#2f6fd6", rows: [["RATE", "yxxy"], ["HERO", "xgyx"], ["BEER", "gggg"]] },
+  "solver-5": { icon: "Grid3x3", accent: C.green, rows: [["SLATE", "xxyxg"], ["PRONE", "xxxyg"], ["NAIVE", "ggggg"]] },
   "solver-6": { icon: "Grid3x3", accent: C.yellow, rows: [["SAILOR", "xyxxyx"], ["ORANGE", "yxgxxx"], ["COBALT", "gggggg"]] },
   "solver-7": { icon: "Grid3x3", accent: "#7c4dcc", rows: [["RAINBOW", "xyxxxxx"], ["CAPTAIN", "gyxxxxx"], ["CHAPTER", "ggggggg"]] },
   finder: { icon: "TextSearch", accent: C.brand, rows: [["C_A_E", "geyeg"], ["CRATE", "ggggg"], ["CRANE", "ggggg"]] },
@@ -241,20 +242,30 @@ function ico(pngs) {
 }
 
 // ---- Run -----------------------------------------------------------------------
+//   npm run images                          # everything
+//   npm run images -- --only solver-5,5-letter-wordle-solver   # just these keys
 const pub = join(root, "public");
-for (const d of ["images", "og"]) {
-  rmSync(join(pub, d), { recursive: true, force: true });
-  mkdirSync(join(pub, d), { recursive: true });
+const onlyArg = process.argv.indexOf("--only");
+const only = onlyArg > -1 ? new Set(process.argv[onlyArg + 1].split(",")) : null;
+const wanted = (key) => !only || only.has(key);
+if (!only) {
+  for (const d of ["images", "og"]) {
+    rmSync(join(pub, d), { recursive: true, force: true });
+    mkdirSync(join(pub, d), { recursive: true });
+  }
 }
 
+// Seed decorations from the key so each image looks the same however it's built.
+const seedOf = (key) => [...key].reduce((h, c) => (h * 31 + c.charCodeAt(0)) % 997, 7);
+
 let total = 0;
-let seed = 1;
 for (const [key, spec] of Object.entries(ILLUSTRATIONS)) {
-  const buf = await sharp(Buffer.from(await illustration(key, spec, seed++))).webp({ quality: 74, effort: 6, smartSubsample: true }).toBuffer();
+  if (!wanted(key)) continue;
+  const buf = await sharp(Buffer.from(await illustration(key, spec, seedOf(key)))).webp({ quality: 74, effort: 6, smartSubsample: true }).toBuffer();
   writeFileSync(join(pub, "images", `${key}.webp`), buf);
   total += buf.length;
 }
-console.log(`Illustrations: ${Object.keys(ILLUSTRATIONS).length} WebP files, ${(total / 1024).toFixed(0)} KB total`);
+console.log(`Illustrations: ${(total / 1024).toFixed(0)} KB written`);
 
 const five = getWords(5);
 const lists = listSlugs(five.valid).map(({ slug, kind, letter }) => {
@@ -263,11 +274,13 @@ const lists = listSlugs(five.valid).map(({ slug, kind, letter }) => {
 });
 total = 0;
 for (const page of [...PAGES, ...lists]) {
-  const buf = await sharp(Buffer.from(await ogImage(page, seed++))).jpeg({ quality: 82, mozjpeg: true, chromaSubsampling: "4:4:4" }).toBuffer();
+  if (!wanted(page.og)) continue;
+  const buf = await sharp(Buffer.from(await ogImage(page, seedOf(page.og)))).jpeg({ quality: 82, mozjpeg: true, chromaSubsampling: "4:4:4" }).toBuffer();
   writeFileSync(join(pub, "og", `${page.og}.jpg`), buf);
   total += buf.length;
 }
-console.log(`Social images: ${PAGES.length + lists.length} JPEG files, ${(total / 1024).toFixed(0)} KB total`);
+console.log(`Social images: ${(total / 1024).toFixed(0)} KB written`);
+if (only) process.exit(0);
 
 const png = (svg, size) => sharp(Buffer.from(svg)).resize(size, size).png({ compressionLevel: 9 }).toBuffer();
 writeFileSync(join(pub, "icon.svg"), logoSvg(64));
