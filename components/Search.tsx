@@ -7,7 +7,7 @@ import { Icon } from "./Icon";
 type Entry = { p: string; t: string; d: string; s: string; k: string };
 
 const SECTION: Record<string, string> = {
-  home: "Tool", daily: "Daily", solvers: "Solver", words: "Word tool", lists: "Word list", guides: "Guide", site: "Info",
+  home: "Tool", daily: "Daily", solvers: "Solver", words: "Word tool", lists: "Word list", guides: "Guide", blog: "Blog", site: "Info",
 };
 
 let indexPromise: Promise<Entry[]> | null = null;

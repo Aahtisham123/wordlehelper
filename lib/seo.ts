@@ -11,7 +11,8 @@ export function metadataFor(entryOrPath: PageEntry | string): Metadata {
     alternates: { canonical: page.path },
     robots: page.noindex ? { index: false, follow: true } : undefined,
     openGraph: {
-      type: page.section === "guides" && page.path !== "/guides/" ? "article" : "website",
+      type: (page.section === "guides" && page.path !== "/guides/") || page.published ? "article" : "website",
+      ...(page.published ? { publishedTime: page.published, modifiedTime: page.updated } : {}),
       url: page.path,
       siteName: SITE.name,
       title: page.title,

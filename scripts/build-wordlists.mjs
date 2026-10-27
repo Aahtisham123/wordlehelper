@@ -114,6 +114,7 @@ console.log("Best second words:", Object.entries(pairs).map(([k, v]) => `${k} â†
   const dist = {};
   let total = 0;
   let worst = { word: "", turns: 0 };
+  const games5 = [];
   for (const secret of answers5) {
     const rows = [];
     let guess = opener;
@@ -124,6 +125,7 @@ console.log("Best second words:", Object.entries(pairs).map(([k, v]) => `${k} â†
       guess = bestGuesses(left, guesses5, { limit: 1, maxPool: 300 })[0].word;
       turns++;
     }
+    games5.push({ word: secret, turns, path: rows.map((r) => r.word).concat(secret) });
     dist[turns] = (dist[turns] || 0) + 1;
     total += turns;
     if (turns > worst.turns) worst = { word: secret, turns };
@@ -137,6 +139,10 @@ console.log("Best second words:", Object.entries(pairs).map(([k, v]) => `${k} â†
     solvedWithinSix: Number(((100 * Object.entries(dist).filter(([k]) => Number(k) <= 6).reduce((a, [, v]) => a + v, 0)) / games).toFixed(1)),
     solvedWithinFour: Number(((100 * Object.entries(dist).filter(([k]) => Number(k) <= 4).reduce((a, [, v]) => a + v, 0)) / games).toFixed(1)),
     worst,
+    // The words the solver found hardest, with the guesses it played.
+    hardest: games5
+      .filter((g) => g.turns >= 6)
+      .sort((a, b) => b.turns - a.turns || (a.word < b.word ? -1 : 1)),
   };
   writeFileSync(join(root, "data/benchmark.json"), JSON.stringify(bench, null, 2) + "\n");
   console.log(`Benchmark (${Date.now() - t0}ms):`, JSON.stringify(bench));

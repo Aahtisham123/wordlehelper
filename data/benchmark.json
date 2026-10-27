@@ -16,5 +16,165 @@
   "worst": {
     "word": "cover",
     "turns": 7
-  }
+  },
+  "hardest": [
+    {
+      "word": "cover",
+      "turns": 7,
+      "path": [
+        "raise",
+        "deter",
+        "bowel",
+        "homey",
+        "gofer",
+        "joker",
+        "cover"
+      ]
+    },
+    {
+      "word": "poker",
+      "turns": 7,
+      "path": [
+        "raise",
+        "deter",
+        "bowel",
+        "homey",
+        "gofer",
+        "joker",
+        "poker"
+      ]
+    },
+    {
+      "word": "agave",
+      "turns": 6,
+      "path": [
+        "raise",
+        "eland",
+        "aback",
+        "agape",
+        "agate",
+        "agave"
+      ]
+    },
+    {
+      "word": "axing",
+      "turns": 6,
+      "path": [
+        "raise",
+        "along",
+        "agape",
+        "acing",
+        "awing",
+        "axing"
+      ]
+    },
+    {
+      "word": "fixer",
+      "turns": 6,
+      "path": [
+        "raise",
+        "lined",
+        "peter",
+        "fiber",
+        "fiver",
+        "fixer"
+      ]
+    },
+    {
+      "word": "foyer",
+      "turns": 6,
+      "path": [
+        "raise",
+        "deter",
+        "bowel",
+        "homey",
+        "coyer",
+        "foyer"
+      ]
+    },
+    {
+      "word": "goner",
+      "turns": 6,
+      "path": [
+        "raise",
+        "deter",
+        "bowel",
+        "homey",
+        "gofer",
+        "goner"
+      ]
+    },
+    {
+      "word": "joker",
+      "turns": 6,
+      "path": [
+        "raise",
+        "deter",
+        "bowel",
+        "homey",
+        "gofer",
+        "joker"
+      ]
+    },
+    {
+      "word": "layer",
+      "turns": 6,
+      "path": [
+        "raise",
+        "peter",
+        "bagel",
+        "lamer",
+        "laxer",
+        "layer"
+      ]
+    },
+    {
+      "word": "mixer",
+      "turns": 6,
+      "path": [
+        "raise",
+        "lined",
+        "peter",
+        "fiber",
+        "hiker",
+        "mixer"
+      ]
+    },
+    {
+      "word": "watch",
+      "turns": 6,
+      "path": [
+        "raise",
+        "canty",
+        "halms",
+        "batch",
+        "patch",
+        "watch"
+      ]
+    },
+    {
+      "word": "wight",
+      "turns": 6,
+      "path": [
+        "raise",
+        "linty",
+        "topic",
+        "ambit",
+        "fight",
+        "wight"
+      ]
+    },
+    {
+      "word": "winch",
+      "turns": 6,
+      "path": [
+        "raise",
+        "linty",
+        "cuing",
+        "finch",
+        "pinch",
+        "winch"
+      ]
+    }
+  ]
 }

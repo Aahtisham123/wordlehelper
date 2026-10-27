@@ -40,6 +40,7 @@ const EYEBROW: Record<string, string> = {
   words: "Word tool",
   lists: "Word list",
   guides: "Guide",
+  blog: "Blog",
   site: "Wordle Helper",
 };
 
@@ -71,9 +72,16 @@ export function PageHeader({
       <h1>{page.heading}</h1>
       <p className="lead">{lead}</p>
       <div className="meta-row">
-        <span>
-          <Icon name="CalendarDays" size={15} /> Last updated <time dateTime={page.updated}>{formatDate(page.updated)}</time>
-        </span>
+        {page.published && (
+          <span>
+            <Icon name="CalendarDays" size={15} /> Published <time dateTime={page.published}>{formatDate(page.published)}</time>
+          </span>
+        )}
+        {(!page.published || page.updated > page.published) && (
+          <span>
+            <Icon name="CalendarDays" size={15} /> Last updated <time dateTime={page.updated}>{formatDate(page.updated)}</time>
+          </span>
+        )}
         <span>
           <Icon name="UserRound" size={15} /> By the <Link href="/about/">Wordle Helper team</Link>
         </span>

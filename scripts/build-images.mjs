@@ -112,6 +112,11 @@ const ILLUSTRATIONS = {
   unlimited: { icon: "Infinity", accent: "#7c4dcc", rows: [["NYMPH", "xxxxx"], ["FJORD", "xxggg"], ["CHORD", "ggggg"]] },
   "solver-3": { icon: "Grid3x3", accent: C.brand, rows: [["CAT", "xgg"], ["HAT", "xgg"], ["BAT", "ggg"]] },
   "solver-4": { icon: "Grid3x3", accent: "#2f6fd6", rows: [["RATE", "yxxy"], ["HERO", "xgyx"], ["BEER", "gggg"]] },
+  blog: { icon: "Newspaper", accent: "#c2413b", rows: [["DAILY", "ggggg"], ["READS", "gygxy"]] },
+  "blog-hardest-words": { icon: "Flame", accent: "#c2413b", rows: [["RAISE", "yxxxy"], ["DETER", "xxxgg"], ["COVER", "ggggg"]] },
+  "blog-hardest-trap": { icon: "Puzzle", accent: C.yellow, rows: [["GOFER", "xgxgg"], ["JOKER", "xgggg"], ["POKER", "ggggg"]] },
+  "blog-wordle-reset": { icon: "Clock", accent: "#2f6fd6", rows: [["RESET", "ggggg"], ["?????", "eeeee"]] },
+  "blog-reset-world": { icon: "Globe", accent: C.green, rows: [["LOCAL", "ggggg"], ["TIMES", "ggggg"]] },
   "solver-5": { icon: "Grid3x3", accent: C.green, rows: [["SLATE", "xxyxg"], ["PRONE", "xxxyg"], ["NAIVE", "ggggg"]] },
   "solver-6": { icon: "Grid3x3", accent: C.yellow, rows: [["SAILOR", "xyxxyx"], ["ORANGE", "yxgxxx"], ["COBALT", "gggggg"]] },
   "solver-7": { icon: "Grid3x3", accent: "#7c4dcc", rows: [["RAINBOW", "xyxxxxx"], ["CAPTAIN", "gyxxxxx"], ["CHAPTER", "ggggggg"]] },
@@ -170,10 +175,10 @@ function wrap(text, max) {
   return lines;
 }
 
-const SECTION_LABEL = { home: "FREE WORDLE SOLVER", daily: "DAILY PUZZLE", solvers: "WORDLE SOLVER", words: "WORD TOOL", lists: "WORD LIST", guides: "WORDLE GUIDE", site: "WORDLE HELPER" };
+const SECTION_LABEL = { home: "FREE WORDLE SOLVER", daily: "DAILY PUZZLE", solvers: "WORDLE SOLVER", words: "WORD TOOL", lists: "WORD LIST", guides: "WORDLE GUIDE", blog: "WORDLE BLOG", site: "WORDLE HELPER" };
 
 async function ogImage(page, seed) {
-  const accent = { daily: C.yellow, guides: "#7c4dcc", lists: "#2f6fd6", site: C.gray }[page.section] ?? C.brand;
+  const accent = { daily: C.yellow, guides: "#7c4dcc", blog: "#c2413b", lists: "#2f6fd6", site: C.gray }[page.section] ?? C.brand;
   const title = page.heading;
   const lines = wrap(title, title.length > 34 ? 20 : 17).slice(0, 3);
   const size = lines.length >= 3 ? 64 : 74;

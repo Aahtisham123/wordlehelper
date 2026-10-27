@@ -7,7 +7,9 @@ export type PageEntry = {
   description: string;
   heading: string;
   nav: string;
-  section: "home" | "daily" | "solvers" | "words" | "lists" | "guides" | "site";
+  section: "home" | "daily" | "solvers" | "words" | "lists" | "guides" | "blog" | "site";
+  published?: string;
+  readingTime?: number;
   icon: string;
   image?: string;
   imageAlt?: string;
