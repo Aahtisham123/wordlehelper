@@ -15,7 +15,8 @@
     "images": "node scripts/build-images.mjs",
     "wordlists": "node scripts/build-wordlists.mjs",
     "add-answer": "node scripts/add-answer.mjs",
-    "fetch-daily": "node scripts/fetch-daily.mjs"
+    "fetch-daily": "node scripts/fetch-daily.mjs",
+    "compare-openers": "node scripts/compare-openers.mjs"
   },
   "engines": {
     "node": ">=20"

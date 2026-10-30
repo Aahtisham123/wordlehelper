@@ -1,0 +1,110 @@
+{
+  "games": 2744,
+  "results": [
+    {
+      "opener": "raise",
+      "vowels": 3,
+      "bits": 5.859,
+      "patterns": 133,
+      "expectedLeft": 74.5,
+      "allGrayPct": 7.4,
+      "average": 3.62,
+      "solvedWithinFour": 92.3,
+      "solvedWithinSix": 99.9,
+      "failures": 2,
+      "distribution": {
+        "1": 1,
+        "2": 61,
+        "3": 1149,
+        "4": 1323,
+        "5": 197,
+        "6": 11,
+        "7": 2
+      }
+    },
+    {
+      "opener": "slate",
+      "vowels": 2,
+      "bits": 5.806,
+      "patterns": 153,
+      "expectedLeft": 90.2,
+      "allGrayPct": 9.8,
+      "average": 3.57,
+      "solvedWithinFour": 94,
+      "solvedWithinSix": 99.9,
+      "failures": 3,
+      "distribution": {
+        "1": 1,
+        "2": 83,
+        "3": 1196,
+        "4": 1300,
+        "5": 149,
+        "6": 12,
+        "7": 3
+      }
+    },
+    {
+      "opener": "crane",
+      "vowels": 2,
+      "bits": 5.686,
+      "patterns": 146,
+      "expectedLeft": 98.7,
+      "allGrayPct": 11.7,
+      "average": 3.59,
+      "solvedWithinFour": 93.5,
+      "solvedWithinSix": 100,
+      "failures": 1,
+      "distribution": {
+        "1": 1,
+        "2": 86,
+        "3": 1139,
+        "4": 1341,
+        "5": 161,
+        "6": 15,
+        "7": 1
+      }
+    },
+    {
+      "opener": "audio",
+      "vowels": 4,
+      "bits": 4.632,
+      "patterns": 98,
+      "expectedLeft": 213.3,
+      "allGrayPct": 8.2,
+      "average": 3.77,
+      "solvedWithinFour": 86.6,
+      "solvedWithinSix": 100,
+      "failures": 1,
+      "distribution": {
+        "1": 1,
+        "2": 60,
+        "3": 910,
+        "4": 1405,
+        "5": 340,
+        "6": 27,
+        "7": 1
+      }
+    },
+    {
+      "opener": "adieu",
+      "vowels": 4,
+      "bits": 4.901,
+      "patterns": 87,
+      "expectedLeft": 145.1,
+      "allGrayPct": 7.1,
+      "average": 3.77,
+      "solvedWithinFour": 88.7,
+      "solvedWithinSix": 99.9,
+      "failures": 3,
+      "distribution": {
+        "1": 1,
+        "2": 50,
+        "3": 874,
+        "4": 1510,
+        "5": 278,
+        "6": 28,
+        "7": 3
+      }
+    }
+  ]
+}
