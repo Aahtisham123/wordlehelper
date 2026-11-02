@@ -1,16 +1,16 @@
 import {
-  Archive, ArrowRight, ArrowUp, BadgeCheck, BookA, Brain, CalendarDays, Check, ChevronDown, ChevronRight, CircleAlert,
+  Archive, ArrowLeftRight, ArrowRight, ArrowUp, BadgeCheck, BookA, Brain, CalendarDays, Check, ChevronDown, ChevronRight, CircleAlert,
   CircleCheckBig, CircleHelp, Clock, Command, Cookie, Copy, Eye, FileText, Flame, Gauge, Gem, GraduationCap, Grid3x3, Hash, Info,
-  Globe, Infinity as InfinityIcon, Keyboard, Layers, LetterText, Lightbulb, List, ListChecks, LoaderCircle, Lock, Mail, Medal,
+  Globe, Infinity as InfinityIcon, Keyboard, Layers, Leaf, LetterText, Lightbulb, List, ListChecks, LoaderCircle, Lock, Mail, Medal,
   Menu, Microscope, Monitor, Moon, MousePointerClick, Newspaper, PanelLeftClose, PanelLeftOpen, PartyPopper, Puzzle, Quote, RotateCcw, Route, Scale, Search,
   Share2, ShieldCheck, Shuffle, Smartphone, Sparkles, SpellCheck, Star, Sun, Target, TextSearch, Trash2, TriangleAlert,
   Trophy, UserRound, Users, WandSparkles, X, Zap, type LucideIcon,
 } from "lucide-react";
 
 const ICONS: Record<string, LucideIcon> = {
-  Archive, ArrowRight, ArrowUp, BadgeCheck, BookA, Brain, CalendarDays, Check, ChevronDown, ChevronRight, CircleAlert,
+  Archive, ArrowLeftRight, ArrowRight, ArrowUp, BadgeCheck, BookA, Brain, CalendarDays, Check, ChevronDown, ChevronRight, CircleAlert,
   CircleCheckBig, CircleHelp, Clock, Command, Cookie, Copy, Eye, FileText, Flame, Gauge, Gem, GraduationCap, Grid3x3, Hash, Info,
-  Globe, Infinity: InfinityIcon, Keyboard, Layers, LetterText, Lightbulb, List, ListChecks, LoaderCircle, Lock, Mail, Medal,
+  Globe, Infinity: InfinityIcon, Keyboard, Layers, Leaf, LetterText, Lightbulb, List, ListChecks, LoaderCircle, Lock, Mail, Medal,
   Menu, Microscope, Monitor, Moon, MousePointerClick, Newspaper, PanelLeftClose, PanelLeftOpen, PartyPopper, Puzzle, Quote, RotateCcw, Route, Scale, Search,
   Share2, ShieldCheck, Shuffle, Smartphone, Sparkles, SpellCheck, Star, Sun, Target, TextSearch, Trash2, TriangleAlert,
   Trophy, UserRound, Users, WandSparkles, X, Zap,
